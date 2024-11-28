@@ -1,4 +1,4 @@
-# **Proyecto: Análisis de Cohortes y Calidad de Datos**
+# **Proyecto: Business Payments aplicando EDA, Análisis de Calidad de los Datos, PCA y K-means **
 
 Este proyecto tiene como objetivo analizar la calidad de los datos y generar insights valiosos sobre el comportamiento de los clientes y las transacciones en la Business Payments. Este documento sirve para presentar los hallazgos clave a los stakeholders y proponer próximos pasos para la toma de decisiones estratégicas.
 
@@ -19,7 +19,7 @@ El repositorio está organizado en las siguientes carpetas:
   - `01-EDA-fees.ipynb`: Exploración de datos del dataset Fees.
   - `02-analisis-calidad-datos-cashrequest.ipynb`: Análisis de calidad de datos para el dataset Cash Request.
   - `02-analisis-calidad-datos-fees.ipynb`: Análisis de calidad de datos para el dataset Fees.
-  - `v1-Modelos-regresión-personalizados.ipynb`: Modelos iniciales de regresión personalizados.
+  - `03-Modelos-regresión-personalizados.ipynb`: Modelos iniciales de regresión personalizados.
 
 - `dataset/`:
   - `extract-cashrequest-data analyst.csv`: Dataset crudo de Cash Request.
@@ -35,7 +35,7 @@ El repositorio está organizado en las siguientes carpetas:
 ## **Miembros del Equipo**
 - **Julieth Vasco Bueno**
 - **Gustavo Chavez**
-- **Jordi**
+- **Jordi Via**
 
 ---
 
@@ -295,7 +295,9 @@ Se desarrollaron modelos iniciales para predecir comportamientos de clientes y t
 ---
 
 ## **Aprendizajes**
-<COMPLETARRR>
+- Al realizar un análisis es necesario desde el inicio plantear las preguntas de negocio que se quieren averiguar, de esta manera el enfoque se mantiene durante el proyecto. ¡Siempre hay más insights que encontrar!
+- La preparación de los datos es fundamental para la aplicación de los modelos, en ocaciones realizamos modelos que no dieron fruto, debido a un uso poco útil de los datos.
+- El trabajo en equipo y el compromiso de todos los integrantes es fundamental para obtener mejores resultados.
 
 ---
 
@@ -306,4 +308,3 @@ Se desarrollaron modelos iniciales para predecir comportamientos de clientes y t
 4. Completar información faltantes.
 
 ---
-# business-payments-pca
