@@ -180,62 +180,68 @@ El análisis de calidad de los datos evaluó dimensiones clave como la integrida
 **Hallazgos Clave**:
 * Análisis de calidad de datos: **Cash Request**
 
-  * Valores faltantes:
+  * **Valores faltantes:**
     Columnas significativamente afectadas: moderated_at, deleted_account_id, reimbursement_date, money_back_date, recovery_status, reco_creation, reco_last_update.
     Algunas columnas con datos parcialmente faltantes: user_id, cash_request_received_date, send_at.
 
-  * Estrategias de imputación:
+  * **Estrategias de imputación:**
     * Fechas: Se completan basándose en lógicas derivadas de la columna created_at.
     * Datos categóricos: Uso del valor más frecuente o categorización específica.
     * Datos numéricos: Aplicación de métodos estadísticos como media, mediana o interpolación.
 
-  * Resultados esperados:
+  * **Resultados esperados:**
     * Mejor consistencia temporal y categórica tras aplicar las soluciones.
 
 * Análisis de calidad de datos: **Fees**
   
-  * Valores faltantes y patrones:
+  * **Valores faltantes y patrones:**
     Alta incidencia de valores faltantes en columnas como category (~90% de datos faltantes, con valores categóricos limitados).
     Fechas relevantes (paid_at, from_date, to_date) presentan aproximadamente un 25-30% de datos faltantes.
 
-  * Estrategias de tratamiento:
+  * **Estrategias de tratamiento:**
     Para valores categóricos, clasificación en categorías binomiales o nominales.
 
   * Fechas: Completadas en rangos basados en distribuciones observadas.
 
-  * Análisis temporal y categórico:
+  * **Análisis temporal y categórico:**
     Limpieza y agrupación para generar interpretaciones más claras en análisis subsiguientes.
 
 
 Basandonos en los criterios del Marco de Calidad de Datos podemos concluir:
-1. Integridad
-cash_request:
-Columnas con valores faltantes significativos: moderated_at, deleted_account_id, reimbursement_date, entre otras.
-Columnas parcialmente afectadas: user_id, cash_request_received_date, send_at.
-fees:
-Columnas con valores faltantes significativos: category, to_date, from_date.
-Columnas parcialmente afectadas: paid_at.
-Estrategias aplicadas:
-Imputación de fechas basada en patrones temporales.
-Clasificación binaria o nominal para valores categóricos.
-2. Consistencia
-Correlaciones de valores faltantes indicaron dependencias claras entre columnas, lo que permitió imputar datos basándose en reglas lógicas.
-Ejemplo: Si deleted_account_id está vacío, moderated_at también tiende a estar vacío (indicando una cuenta activa).
-3. Relevancia
-Se identificaron valores irrelevantes esperados en columnas condicionales, como moderated_at o deleted_account_id para usuarios activos.
-No se detectaron valores negativos en las columnas monetarias (amount) en ambos datasets.
-4. Validez
-Ambos datasets cumplen con los rangos esperados en variables numéricas.
-Outliers: Detectados en columnas como amount, concentrados en valores altos (e.g., > 100), revisados para análisis posterior.
-5. Unicidad
-No se detectaron registros duplicados en ninguno de los conjuntos de datos.
-6. Estructura
-Se realizaron transformaciones clave para mejorar la calidad y preparación de los datos:
-Codificación numérica (Label Encoding) de variables categóricas como recovery_status, type, status, entre otras.
-Imputación de fechas faltantes en from_date y to_date basada en intervalos promedio calculados (20.38 días).
-Creación de nuevas variables derivadas:
-duration_days: Intervalo entre from_date y to_date.
-time_to_payment_days: Diferencia entre paid_at y from_date.
+  * **1. Integridad**
+    - cash_request:
+      Columnas con valores faltantes significativos: moderated_at, deleted_account_id, reimbursement_date, entre otras.
+      Columnas parcialmente afectadas: user_id, cash_request_received_date, send_at.
+    - fees:
+      Columnas con valores faltantes significativos: category, to_date, from_date.
+      Columnas parcialmente afectadas: paid_at.
+
+    - Estrategias aplicadas:
+      Imputación de fechas basada en patrones temporales.
+      Clasificación binaria o nominal para valores categóricos.
+      
+  * **2. Consistencia**
+    Correlaciones de valores faltantes indicaron dependencias claras entre columnas, lo que permitió imputar datos basándose en reglas lógicas.
+    Ejemplo: Si deleted_account_id está vacío, moderated_at también tiende a estar vacío (indicando una cuenta activa).
+    
+  * **3. Relevancia**
+    Se identificaron valores irrelevantes esperados en columnas condicionales, como moderated_at o deleted_account_id para usuarios activos.
+    No se detectaron valores negativos en las columnas monetarias (amount) en ambos datasets.
+    
+  * **4. Validez**
+    Ambos datasets cumplen con los rangos esperados en variables numéricas.
+    Outliers: Detectados en columnas como amount, concentrados en valores altos (e.g., > 100), revisados para análisis posterior.
+    
+  * **5. Unicidad**
+    No se detectaron registros duplicados en ninguno de los conjuntos de datos.
+
+  * **6. Estructura**
+    Se realizaron transformaciones clave para mejorar la calidad y preparación de los datos:
+    - Codificación numérica (Label Encoding) de variables categóricas como recovery_status, type, status, entre otras.
+    - Imputación de fechas faltantes en from_date y to_date basada en intervalos promedio calculados (20.38 días).
+    - Creación de nuevas variables derivadas:
+       - duration_days: Intervalo entre from_date y to_date.
+       - time_to_payment_days: Diferencia entre paid_at y from_date.
 
 **Visualizaciones**:
 
@@ -260,11 +266,15 @@ time_to_payment_days: Diferencia entre paid_at y from_date.
 
 
 ### **3. Modelos de Regresión**
-Se desarrollaron modelos iniciales para predecir comportamientos de clientes y transacciones futuras.
+Se desarrollaron modelos iniciales para predecir comportamientos de clientes a travez de PCA y utilizando K-means.
 
 **Hallazgos Clave**:
 
-<COMPLETARRR>
+  * Cluster Perfil Características principales
+    - 0 Oro Altos ingresos, pagos lentos, confiables.
+    - 1 Bronce Bajos ingresos, tiempos de pago moderados, confiables.
+    - 2 Plata Ingresos moderados, tiempos promedio, incidentes recurrentes.
+    - 3 Platino Bajos ingresos, pagos rápidos, sin incidentes.
 
 
 
@@ -290,7 +300,35 @@ Se desarrollaron modelos iniciales para predecir comportamientos de clientes y t
 ---
 
 ## **Conclusión**
-<COMPLETARRR>
+  * 1. Los tipos de clientes y su comportamiento son identificables mediante PCA
+  * Análisis PCA y calidad de los datos:
+
+    El análisis de componentes principales (PCA) permitió identificar patrones clave entre los clientes, segmentándolos en grupos con características similares según variables como amount, status, category, y type.
+
+    Los principales grupos identificados incluyen:
+    - Clientes regulares: Aquellos con transacciones frecuentes de montos bajos o estándar (50-100 unidades) asociados a estados active o direct_debit_sent.
+    - Clientes problemáticos: Relacionados con rejected_direct_debit o transaction_declined, con montos más altos y patrones de retrasos en pagos.
+    - Clientes prioritarios: Pocos pero significativos, con montos altos (superiores a 125) y asociados a categorías como instant_payment.
+    
+    Impacto en el negocio:
+    - La segmentación basada en PCA puede ayudar a priorizar recursos, por ejemplo:
+    - Implementar estrategias para reducir rechazos de débitos en el segmento problemático.
+    - Ofrecer incentivos para retener a los clientes prioritarios.
+
+  * 2. Actualizaciones masivas y retrasos
+    
+    Retrasos significativos entre created_at y updated_at:
+    - Se detectaron registros con intervalos de hasta varios meses entre la creación y la actualización, lo cual podría ser causado por:
+    - Procesos de moderación manual.
+    - Inactividad del cliente antes de una acción correctiva.
+    - Ineficiencias en el flujo de trabajo.
+   
+  * Otros valores a analizar posteriormente
+
+    - Estatus financiero y coste de las operaciones, reduciendo los rechazos.
+    - Aumento en la retención de los usuarios.
+    - Picos de estacionalidad o acontecimientos económicos, para una mejor preparación en el futuro.
+    - Uso de modelos predictivos para evitar rechazo o incidencias en los pagos.
 
 ---
 
