@@ -60,7 +60,7 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ---
 
 ### Evolución Temporal de las Transacciones
-![Distribución Temporal](image.png)
+![Distribución Temporal](readme-png/image.png)
 
 - **Tendencias Clave:**
   - **Crecimiento Inicial (Nov-May):** Incremento gradual, posiblemente asociado a una adopción temprana del servicio.
@@ -88,7 +88,7 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ---
 
 ### Tasa de Incidentes
-![Tasa de Incidentes](image.png)
+![Tasa de Incidentes](readme-png/image.png)
 
 - **Hallazgos Clave:**
   - Incremento constante desde junio (0.26%) hasta octubre (6.51%), con una reducción en noviembre (3.75%).
@@ -105,14 +105,14 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ## 2. **Análisis de Fees**
 
 ### Distribución por Tipo de Tarifa
-![Distribución de Tarifas](image.png)
+![Distribución de Tarifas](readme-png/image.png)
 
 - **Dominancia de `"instant_payment"`:** Representa ~53% de las tarifas, indicando una preferencia por pagos inmediatos.
 
 ---
 
 ### Ingresos por Cohorte
-![Ingresos por Cohorte](image.png)
+![Ingresos por Cohorte](readme-png/image.png)
 
 - **Patrones Destacados:**
   - **Crecimiento Continuo:** Los ingresos aumentan consistentemente hasta octubre ($53,835).
@@ -128,7 +128,7 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ## 3. **Hallazgos Generales y Métricas Clave**
 
 ### Métricas Acumuladas
-![Métricas Acumuladas](image.png)
+![Métricas Acumuladas](readme-png/image.png)
 
 - **Ingreso Total:** $105,310 (noviembre 2020).
 - **Total de Transacciones:** 21,061.
@@ -165,12 +165,12 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 
 
 **Visualizaciones**:
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
-![alt text](image-5.png)
-![alt text](image-7.png)
+![alt text](readme-png/image.png)
+![alt text](readme-png/image-1.png)
+![alt text](readme-png/image-2.png)
+![alt text](readme-png/image-3.png)
+![alt text](readme-png/image-5.png)
+![alt text](readme-png/image-7.png)
 
 
 
@@ -239,22 +239,22 @@ time_to_payment_days: Diferencia entre paid_at y from_date.
 
 **Visualizaciones**:
 
-![alt text](image-8.png)
-![alt text](image-10.png)
-![alt text](image-11.png)
-![alt text](image-12.png)
-![alt text](image-13.png)
-![alt text](image-14.png)
-![alt text](image-16.png)
-![alt text](image-17.png)
-![alt text](image-18.png)
-![alt text](image-19.png)
-![alt text](image-20.png)
-![alt text](image-21.png)
-![alt text](image-22.png)
-![alt text](image-23.png)
-![alt text](image-24.png)
-![alt text](image-25.png)
+![alt text](readme-png/image-8.png)
+![alt text](readme-png/image-10.png)
+![alt text](readme-png/image-11.png)
+![alt text](readme-png/image-12.png)
+![alt text](readme-png/image-13.png)
+![alt text](readme-png/image-14.png)
+![alt text](readme-png/image-16.png)
+![alt text](readme-png/image-17.png)
+![alt text](readme-png/image-18.png)
+![alt text](readme-png/image-19.png)
+![alt text](readme-png/image-20.png)
+![alt text](readme-png/image-21.png)
+![alt text](readme-png/image-22.png)
+![alt text](readme-png/image-23.png)
+![alt text](readme-png/image-24.png)
+![alt text](readme-png/image-25.png)
 ---
 
 
@@ -270,21 +270,21 @@ Se desarrollaron modelos iniciales para predecir comportamientos de clientes y t
 
 **Visualizaciones**:
 
-![alt text](image-26.png)
-![alt text](image-27.png)
-![alt text](image-28.png)
-![alt text](image-29.png)
-![alt text](image-30.png)
-![alt text](image-31.png)
-![alt text](image-32.png)
-![alt text](image-33.png)
-![alt text](image-34.png)
-![alt text](image-35.png)
-![alt text](image-36.png)
-![alt text](image-37.png)
-![alt text](image-38.png)
-![alt text](image-39.png)
-![alt text](image-40.png)
+![alt text](readme-png/image-26.png)
+![alt text](readme-png/image-27.png)
+![alt text](readme-png/image-28.png)
+![alt text](readme-png/image-29.png)
+![alt text](readme-png/image-30.png)
+![alt text](readme-png/image-31.png)
+![alt text](readme-png/image-32.png)
+![alt text](readme-png/image-33.png)
+![alt text](readme-png/image-34.png)
+![alt text](readme-png/image-35.png)
+![alt text](readme-png/image-36.png)
+![alt text](readme-png/image-37.png)
+![alt text](readme-png/image-38.png)
+![alt text](readme-png/image-39.png)
+![alt text](readme-png/image-40.png)
 
 
 ---
