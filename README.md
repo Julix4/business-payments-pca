@@ -1,4 +1,4 @@
-# **Proyecto: Business Payments aplicando EDA, Análisis de Calidad de los Datos, PCA y K-means **
+# Proyecto: Business Payments aplicando EDA, Análisis de Calidad de los Datos, PCA y K-means
 
 Este proyecto tiene como objetivo analizar la calidad de los datos y generar insights valiosos sobre el comportamiento de los clientes y las transacciones en la Business Payments. Este documento sirve para presentar los hallazgos clave a los stakeholders y proponer próximos pasos para la toma de decisiones estratégicas.
 
