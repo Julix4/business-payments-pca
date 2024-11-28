@@ -61,6 +61,7 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 
 ### Evolución Temporal de las Transacciones
 ![Distribución Temporal](readme-png/image.png)
+![Distribución Temporal](readme-png/image1.1.png)
 
 - **Tendencias Clave:**
   - **Crecimiento Inicial (Nov-May):** Incremento gradual, posiblemente asociado a una adopción temprana del servicio.
@@ -74,7 +75,7 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ---
 
 ### Cohortes Mensuales
-![Cohortes](readme-png/image.png)
+![Cohortes](readme-png/image1.2.png)
 
 - **Insights:**
   - **Frecuencia Promedio de Uso:** Aprox. 1.15 transacciones por usuario.
@@ -88,7 +89,7 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ---
 
 ### Tasa de Incidentes
-![Tasa de Incidentes](readme-png/image.png)
+![Tasa de Incidentes](readme-png/image1.3.png)
 
 - **Hallazgos Clave:**
   - Incremento constante desde junio (0.26%) hasta octubre (6.51%), con una reducción en noviembre (3.75%).
@@ -105,14 +106,13 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ## 2. **Análisis de Fees**
 
 ### Distribución por Tipo de Tarifa
-![Distribución de Tarifas](readme-png/image.png)
+![Distribución de Tarifas](readme-png/image1.4.png)
 
 - **Dominancia de `"instant_payment"`:** Representa ~53% de las tarifas, indicando una preferencia por pagos inmediatos.
 
 ---
 
 ### Ingresos por Cohorte
-![Ingresos por Cohorte](readme-png/image.png)
 
 - **Patrones Destacados:**
   - **Crecimiento Continuo:** Los ingresos aumentan consistentemente hasta octubre ($53,835).
@@ -128,7 +128,6 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ## 3. **Hallazgos Generales y Métricas Clave**
 
 ### Métricas Acumuladas
-![Métricas Acumuladas](readme-png/image.png)
 
 - **Ingreso Total:** $105,310 (noviembre 2020).
 - **Total de Transacciones:** 21,061.
