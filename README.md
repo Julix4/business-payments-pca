@@ -60,7 +60,7 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ---
 
 ### Evolución Temporal de las Transacciones
-![Distribución Temporal](image.png)
+![Distribución Temporal](readme-png/image.png)
 
 - **Tendencias Clave:**
   - **Crecimiento Inicial (Nov-May):** Incremento gradual, posiblemente asociado a una adopción temprana del servicio.
@@ -74,7 +74,7 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ---
 
 ### Cohortes Mensuales
-![Cohortes](image.png)
+![Cohortes](readme-png/image.png)
 
 - **Insights:**
   - **Frecuencia Promedio de Uso:** Aprox. 1.15 transacciones por usuario.
@@ -88,7 +88,7 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ---
 
 ### Tasa de Incidentes
-![Tasa de Incidentes](image.png)
+![Tasa de Incidentes](readme-png/image.png)
 
 - **Hallazgos Clave:**
   - Incremento constante desde junio (0.26%) hasta octubre (6.51%), con una reducción en noviembre (3.75%).
@@ -105,14 +105,14 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ## 2. **Análisis de Fees**
 
 ### Distribución por Tipo de Tarifa
-![Distribución de Tarifas](image.png)
+![Distribución de Tarifas](readme-png/image.png)
 
 - **Dominancia de `"instant_payment"`:** Representa ~53% de las tarifas, indicando una preferencia por pagos inmediatos.
 
 ---
 
 ### Ingresos por Cohorte
-![Ingresos por Cohorte](image.png)
+![Ingresos por Cohorte](readme-png/image.png)
 
 - **Patrones Destacados:**
   - **Crecimiento Continuo:** Los ingresos aumentan consistentemente hasta octubre ($53,835).
@@ -128,7 +128,7 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ## 3. **Hallazgos Generales y Métricas Clave**
 
 ### Métricas Acumuladas
-![Métricas Acumuladas](image.png)
+![Métricas Acumuladas](readme-png/image.png)
 
 - **Ingreso Total:** $105,310 (noviembre 2020).
 - **Total de Transacciones:** 21,061.
@@ -165,12 +165,12 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 
 
 **Visualizaciones**:
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
-![alt text](image-5.png)
-![alt text](image-7.png)
+![alt text](readme-png/image.png)
+![alt text](readme-png/image-1.png)
+![alt text](readme-png/image-2.png)
+![alt text](readme-png/image-3.png)
+![alt text](readme-png/image-5.png)
+![alt text](readme-png/image-7.png)
 
 
 
@@ -180,117 +180,155 @@ El análisis de calidad de los datos evaluó dimensiones clave como la integrida
 **Hallazgos Clave**:
 * Análisis de calidad de datos: **Cash Request**
 
-  * Valores faltantes:
+  * **Valores faltantes:**
     Columnas significativamente afectadas: moderated_at, deleted_account_id, reimbursement_date, money_back_date, recovery_status, reco_creation, reco_last_update.
     Algunas columnas con datos parcialmente faltantes: user_id, cash_request_received_date, send_at.
 
-  * Estrategias de imputación:
+  * **Estrategias de imputación:**
     * Fechas: Se completan basándose en lógicas derivadas de la columna created_at.
     * Datos categóricos: Uso del valor más frecuente o categorización específica.
     * Datos numéricos: Aplicación de métodos estadísticos como media, mediana o interpolación.
 
-  * Resultados esperados:
+  * **Resultados esperados:**
     * Mejor consistencia temporal y categórica tras aplicar las soluciones.
 
 * Análisis de calidad de datos: **Fees**
   
-  * Valores faltantes y patrones:
+  * **Valores faltantes y patrones:**
     Alta incidencia de valores faltantes en columnas como category (~90% de datos faltantes, con valores categóricos limitados).
     Fechas relevantes (paid_at, from_date, to_date) presentan aproximadamente un 25-30% de datos faltantes.
 
-  * Estrategias de tratamiento:
+  * **Estrategias de tratamiento:**
     Para valores categóricos, clasificación en categorías binomiales o nominales.
 
   * Fechas: Completadas en rangos basados en distribuciones observadas.
 
-  * Análisis temporal y categórico:
+  * **Análisis temporal y categórico:**
     Limpieza y agrupación para generar interpretaciones más claras en análisis subsiguientes.
 
 
 Basandonos en los criterios del Marco de Calidad de Datos podemos concluir:
-1. Integridad
-cash_request:
-Columnas con valores faltantes significativos: moderated_at, deleted_account_id, reimbursement_date, entre otras.
-Columnas parcialmente afectadas: user_id, cash_request_received_date, send_at.
-fees:
-Columnas con valores faltantes significativos: category, to_date, from_date.
-Columnas parcialmente afectadas: paid_at.
-Estrategias aplicadas:
-Imputación de fechas basada en patrones temporales.
-Clasificación binaria o nominal para valores categóricos.
-2. Consistencia
-Correlaciones de valores faltantes indicaron dependencias claras entre columnas, lo que permitió imputar datos basándose en reglas lógicas.
-Ejemplo: Si deleted_account_id está vacío, moderated_at también tiende a estar vacío (indicando una cuenta activa).
-3. Relevancia
-Se identificaron valores irrelevantes esperados en columnas condicionales, como moderated_at o deleted_account_id para usuarios activos.
-No se detectaron valores negativos en las columnas monetarias (amount) en ambos datasets.
-4. Validez
-Ambos datasets cumplen con los rangos esperados en variables numéricas.
-Outliers: Detectados en columnas como amount, concentrados en valores altos (e.g., > 100), revisados para análisis posterior.
-5. Unicidad
-No se detectaron registros duplicados en ninguno de los conjuntos de datos.
-6. Estructura
-Se realizaron transformaciones clave para mejorar la calidad y preparación de los datos:
-Codificación numérica (Label Encoding) de variables categóricas como recovery_status, type, status, entre otras.
-Imputación de fechas faltantes en from_date y to_date basada en intervalos promedio calculados (20.38 días).
-Creación de nuevas variables derivadas:
-duration_days: Intervalo entre from_date y to_date.
-time_to_payment_days: Diferencia entre paid_at y from_date.
+  * **1. Integridad**
+    - cash_request:
+      Columnas con valores faltantes significativos: moderated_at, deleted_account_id, reimbursement_date, entre otras.
+      Columnas parcialmente afectadas: user_id, cash_request_received_date, send_at.
+    - fees:
+      Columnas con valores faltantes significativos: category, to_date, from_date.
+      Columnas parcialmente afectadas: paid_at.
+
+    - Estrategias aplicadas:
+      Imputación de fechas basada en patrones temporales.
+      Clasificación binaria o nominal para valores categóricos.
+      
+  * **2. Consistencia**
+    Correlaciones de valores faltantes indicaron dependencias claras entre columnas, lo que permitió imputar datos basándose en reglas lógicas.
+    Ejemplo: Si deleted_account_id está vacío, moderated_at también tiende a estar vacío (indicando una cuenta activa).
+    
+  * **3. Relevancia**
+    Se identificaron valores irrelevantes esperados en columnas condicionales, como moderated_at o deleted_account_id para usuarios activos.
+    No se detectaron valores negativos en las columnas monetarias (amount) en ambos datasets.
+    
+  * **4. Validez**
+    Ambos datasets cumplen con los rangos esperados en variables numéricas.
+    Outliers: Detectados en columnas como amount, concentrados en valores altos (e.g., > 100), revisados para análisis posterior.
+    
+  * **5. Unicidad**
+    No se detectaron registros duplicados en ninguno de los conjuntos de datos.
+
+  * **6. Estructura**
+    Se realizaron transformaciones clave para mejorar la calidad y preparación de los datos:
+    - Codificación numérica (Label Encoding) de variables categóricas como recovery_status, type, status, entre otras.
+    - Imputación de fechas faltantes en from_date y to_date basada en intervalos promedio calculados (20.38 días).
+    - Creación de nuevas variables derivadas:
+       - duration_days: Intervalo entre from_date y to_date.
+       - time_to_payment_days: Diferencia entre paid_at y from_date.
 
 **Visualizaciones**:
 
-![alt text](image-8.png)
-![alt text](image-10.png)
-![alt text](image-11.png)
-![alt text](image-12.png)
-![alt text](image-13.png)
-![alt text](image-14.png)
-![alt text](image-16.png)
-![alt text](image-17.png)
-![alt text](image-18.png)
-![alt text](image-19.png)
-![alt text](image-20.png)
-![alt text](image-21.png)
-![alt text](image-22.png)
-![alt text](image-23.png)
-![alt text](image-24.png)
-![alt text](image-25.png)
+![alt text](readme-png/image-8.png)
+![alt text](readme-png/image-10.png)
+![alt text](readme-png/image-11.png)
+![alt text](readme-png/image-12.png)
+![alt text](readme-png/image-13.png)
+![alt text](readme-png/image-14.png)
+![alt text](readme-png/image-16.png)
+![alt text](readme-png/image-17.png)
+![alt text](readme-png/image-18.png)
+![alt text](readme-png/image-19.png)
+![alt text](readme-png/image-20.png)
+![alt text](readme-png/image-21.png)
+![alt text](readme-png/image-22.png)
+![alt text](readme-png/image-23.png)
+![alt text](readme-png/image-24.png)
+![alt text](readme-png/image-25.png)
 ---
 
 
 
 ### **3. Modelos de Regresión**
-Se desarrollaron modelos iniciales para predecir comportamientos de clientes y transacciones futuras.
+Se desarrollaron modelos iniciales para predecir comportamientos de clientes a travez de PCA y utilizando K-means.
 
 **Hallazgos Clave**:
 
-<COMPLETARRR>
+  * Cluster Perfil Características principales
+    - 0 Oro Altos ingresos, pagos lentos, confiables.
+    - 1 Bronce Bajos ingresos, tiempos de pago moderados, confiables.
+    - 2 Plata Ingresos moderados, tiempos promedio, incidentes recurrentes.
+    - 3 Platino Bajos ingresos, pagos rápidos, sin incidentes.
 
 
 
 **Visualizaciones**:
 
-![alt text](image-26.png)
-![alt text](image-27.png)
-![alt text](image-28.png)
-![alt text](image-29.png)
-![alt text](image-30.png)
-![alt text](image-31.png)
-![alt text](image-32.png)
-![alt text](image-33.png)
-![alt text](image-34.png)
-![alt text](image-35.png)
-![alt text](image-36.png)
-![alt text](image-37.png)
-![alt text](image-38.png)
-![alt text](image-39.png)
-![alt text](image-40.png)
+![alt text](readme-png/image-26.png)
+![alt text](readme-png/image-27.png)
+![alt text](readme-png/image-28.png)
+![alt text](readme-png/image-29.png)
+![alt text](readme-png/image-30.png)
+![alt text](readme-png/image-31.png)
+![alt text](readme-png/image-32.png)
+![alt text](readme-png/image-33.png)
+![alt text](readme-png/image-34.png)
+![alt text](readme-png/image-35.png)
+![alt text](readme-png/image-36.png)
+![alt text](readme-png/image-37.png)
+![alt text](readme-png/image-38.png)
+![alt text](readme-png/image-39.png)
+![alt text](readme-png/image-40.png)
 
 
 ---
 
 ## **Conclusión**
-<COMPLETARRR>
+  * 1. Los tipos de clientes y su comportamiento son identificables mediante PCA
+  * Análisis PCA y calidad de los datos:
+
+    El análisis de componentes principales (PCA) permitió identificar patrones clave entre los clientes, segmentándolos en grupos con características similares según variables como amount, status, category, y type.
+
+    Los principales grupos identificados incluyen:
+    - Clientes regulares: Aquellos con transacciones frecuentes de montos bajos o estándar (50-100 unidades) asociados a estados active o direct_debit_sent.
+    - Clientes problemáticos: Relacionados con rejected_direct_debit o transaction_declined, con montos más altos y patrones de retrasos en pagos.
+    - Clientes prioritarios: Pocos pero significativos, con montos altos (superiores a 125) y asociados a categorías como instant_payment.
+    
+    Impacto en el negocio:
+    - La segmentación basada en PCA puede ayudar a priorizar recursos, por ejemplo:
+    - Implementar estrategias para reducir rechazos de débitos en el segmento problemático.
+    - Ofrecer incentivos para retener a los clientes prioritarios.
+
+  * 2. Actualizaciones masivas y retrasos
+    
+    Retrasos significativos entre created_at y updated_at:
+    - Se detectaron registros con intervalos de hasta varios meses entre la creación y la actualización, lo cual podría ser causado por:
+    - Procesos de moderación manual.
+    - Inactividad del cliente antes de una acción correctiva.
+    - Ineficiencias en el flujo de trabajo.
+   
+  * Otros valores a analizar posteriormente
+
+    - Estatus financiero y coste de las operaciones, reduciendo los rechazos.
+    - Aumento en la retención de los usuarios.
+    - Picos de estacionalidad o acontecimientos económicos, para una mejor preparación en el futuro.
+    - Uso de modelos predictivos para evitar rechazo o incidencias en los pagos.
 
 ---
 
