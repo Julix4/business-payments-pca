@@ -74,7 +74,7 @@ Investigar patrones en `"money_back"` y `"rejected"` para entender sus causas e 
 ---
 
 ### Cohortes Mensuales
-![Cohortes](image.png)
+![Cohortes](readme-png/image.png)
 
 - **Insights:**
   - **Frecuencia Promedio de Uso:** Aprox. 1.15 transacciones por usuario.
